@@ -13,6 +13,7 @@ class Program
 class Journal
 {
     public string name;
+    string filename => $"JournalOf{name}.txt";
     public List<Entry> entries = new List<Entry>();
 
     public void AddEntry(Entry entry)
@@ -37,6 +38,18 @@ class Journal
     }
     public void LoadFromFile(string filename)
     {
+        string[] lines = File.ReadAllLines(filename);
+        //Create a list of [] strings, each [] contains 4 strings.
+        //Later Loop through the [] to create multiple Entries and assign them to this Journal
+        if (File.Exists(filename))
+        {
+            string [] entry = new string[4];
+            for (int i = 0, j = 0; j < lines.Length; i++, j++)
+            {
+                entry.Append(lines[i]);
+                //if conditinal, if i is 3 then erase the variable holding the list reset i and create an entry with all the necesary values.
+            }
+        }
         //still in progress
     }
 }

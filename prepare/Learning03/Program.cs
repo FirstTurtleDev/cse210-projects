@@ -35,6 +35,6 @@ public class Entry
 
     public void Display()
     {
-        Console.Write()
+        Console.WriteLine();
     }
 }
