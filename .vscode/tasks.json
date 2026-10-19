@@ -136,6 +136,9 @@
         {
             "label": "build-prove-Develop02",
             "command": "dotnet",
+            "windows": {
+                "command": "${env:LOCALAPPDATA}/Microsoft/dotnet/dotnet.exe"
+            },
             "type": "process",
             "args": [
                 "build",
