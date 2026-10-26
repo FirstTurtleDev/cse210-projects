@@ -19,11 +19,21 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
-        // Core behavior allows selecting a word that is already hidden.
-        for (int i = 0; i < numberToHide && _words.Count > 0; i++)
+        List<Word> visibleWords = new List<Word>();
+
+        foreach (Word word in _words)
         {
-            int index = _random.Next(_words.Count);
-            _words[index].Hide();
+            if (!word.IsHidden())
+            {
+                visibleWords.Add(word);
+            }
+        }
+
+        for (int i = 0; i < numberToHide && visibleWords.Count > 0; i++)
+        {
+            int index = _random.Next(visibleWords.Count);
+            visibleWords[index].Hide();
+            visibleWords.RemoveAt(index);
         }
     }
 

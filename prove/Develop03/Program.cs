@@ -2,6 +2,7 @@ using System;
 
 class Program
 {
+    // Each round selects only visible words, hiding three new words or all remaining words.
     static void Main(string[] args)
     {
         Reference reference = new Reference("1 Nephi", 1, 1, 2);
